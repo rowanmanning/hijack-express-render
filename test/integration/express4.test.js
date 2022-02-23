@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('proclaim');
+const {assert} = require('chai');
 const createTestApp = require('./fixture/create-test-app');
 
 describe('Express 4', () => {
@@ -22,16 +22,16 @@ describe('Express 4', () => {
 		});
 
 		it('responds with a 200 status', () => {
-			assert.strictEqual(response.statusCode, 200);
+			assert.strictEqual(response.status, 200);
 		});
 
 		it('responds with the rendered view', () => {
-			assert.isObject(response.body);
-			assert.strictEqual(response.body.view, 'home');
-			assert.isObject(response.body.options);
-			assert.isTrue(response.body.options.isHome);
-			assert.isTrue(response.body.options.isAppLocal);
-			assert.isTrue(response.body.options.isResponseLocal);
+			assert.isObject(response.data);
+			assert.strictEqual(response.data.view, 'home');
+			assert.isObject(response.data.options);
+			assert.isTrue(response.data.options.isHome);
+			assert.isTrue(response.data.options.isAppLocal);
+			assert.isTrue(response.data.options.isResponseLocal);
 		});
 
 	});
@@ -44,13 +44,13 @@ describe('Express 4', () => {
 		});
 
 		it('responds with a 500 status', () => {
-			assert.strictEqual(response.statusCode, 500);
+			assert.strictEqual(response.status, 500);
 		});
 
 		it('responds with an error view', () => {
-			assert.isObject(response.body);
-			assert.isObject(response.body.error);
-			assert.strictEqual(response.body.error.message, 'render error');
+			assert.isObject(response.data);
+			assert.isObject(response.data.error);
+			assert.strictEqual(response.data.error.message, 'render error');
 		});
 
 	});

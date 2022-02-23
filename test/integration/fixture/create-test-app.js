@@ -1,7 +1,7 @@
 'use strict';
 
 const hijackExpressRender = require('../../../lib/hijack-express-render');
-const httpRequest = require('request-promise-native');
+const httpRequest = require('axios');
 
 module.exports = async function createTestApp(expressModule) {
 	const express = require(expressModule);
@@ -64,11 +64,12 @@ module.exports = async function createTestApp(expressModule) {
 
 	// Method to make a GET request to the test application,
 	// required by tests
-	function get(path) {
-		return httpRequest(`${address}${path}`, {
-			json: true,
-			resolveWithFullResponse: true,
-			simple: false
+	function get(requestPath) {
+		return httpRequest({
+			url: `${address}${requestPath}`,
+			validateStatus() {
+				return true;
+			}
 		});
 	}
 

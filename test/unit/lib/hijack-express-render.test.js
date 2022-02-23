@@ -1,37 +1,50 @@
 'use strict';
 
-const assert = require('proclaim');
-const sinon = require('sinon');
+const {assert} = require('chai');
+const td = require('testdouble');
 
 describe('lib/hijack-express-render', () => {
-	let express;
 	let hijackExpressRender;
+	let mockExpressApp;
 
 	beforeEach(() => {
-		express = require('../mock/npm/express');
 		hijackExpressRender = require('../../../lib/hijack-express-render');
 	});
 
 	describe('hijackExpressRender(app, newRenderMethod)', () => {
-		let app;
 		let newRenderMethod;
 		let originalAppRender;
 		let returnValue;
 
 		beforeEach(() => {
-			app = express();
-			originalAppRender = app.render;
-			newRenderMethod = sinon.stub().resolves('mock html');
-			returnValue = hijackExpressRender(app, newRenderMethod);
+			mockExpressApp = {
+				locals: {
+					is: 'app',
+					isLocal: 'app',
+					isAppLocal: true
+				},
+				render: td.func()
+			};
+			td.when(mockExpressApp.render(), {
+				ignoreExtraArgs: true,
+				defer: true
+			}).thenCallback();
+			originalAppRender = mockExpressApp.render;
+			newRenderMethod = td.func();
+			td.when(newRenderMethod(), {
+				ignoreExtraArgs: true,
+				defer: true
+			}).thenResolve('mock html');
+			returnValue = hijackExpressRender(mockExpressApp, newRenderMethod);
 		});
 
 		it('replaces `app.render` with a new method', () => {
-			assert.isFunction(app.render);
-			assert.notStrictEqual(app.render, originalAppRender);
+			assert.isFunction(mockExpressApp.render);
+			assert.notStrictEqual(mockExpressApp.render, originalAppRender);
 		});
 
 		it('returns `app`', () => {
-			assert.strictEqual(returnValue, app);
+			assert.strictEqual(returnValue, mockExpressApp);
 		});
 
 		describe('app.render(view, options, callback)', () => {
@@ -49,7 +62,7 @@ describe('lib/hijack-express-render', () => {
 						isResponseLocal: true
 					}
 				};
-				app.render('mock view', options, (error, result) => {
+				mockExpressApp.render('mock view', options, (error, result) => {
 					callbackError = error;
 					callbackResult = result;
 					done();
@@ -57,9 +70,7 @@ describe('lib/hijack-express-render', () => {
 			});
 
 			it('calls `newRenderMethod` with `view` and `options` merged with `app.locals` and `app.locals._locals`', () => {
-				assert.calledOnce(newRenderMethod);
-				assert.strictEqual(newRenderMethod.firstCall.args[0], 'mock view');
-				assert.deepEqual(newRenderMethod.firstCall.args[1], {
+				td.verify(newRenderMethod('mock view', {
 					is: 'options',
 					isAppLocal: true,
 					isResponseLocal: true,
@@ -70,7 +81,7 @@ describe('lib/hijack-express-render', () => {
 						isLocal: 'response',
 						isResponseLocal: true
 					}
-				});
+				}), {times: 1});
 			});
 
 			it('calls back with no error', () => {
@@ -86,9 +97,11 @@ describe('lib/hijack-express-render', () => {
 
 				beforeEach(done => {
 					renderError = new Error('mock render error');
-					newRenderMethod.reset();
-					newRenderMethod.rejects(renderError);
-					app.render('mock view', options, (error, result) => {
+					td.when(newRenderMethod(), {
+						ignoreExtraArgs: true,
+						defer: true
+					}).thenReject(renderError);
+					mockExpressApp.render('mock view', options, (error, result) => {
 						callbackError = error;
 						callbackResult = result;
 						done();
@@ -112,7 +125,7 @@ describe('lib/hijack-express-render', () => {
 			let callbackResult;
 
 			beforeEach(done => {
-				app.render('mock view', (error, result) => {
+				mockExpressApp.render('mock view', (error, result) => {
 					callbackError = error;
 					callbackResult = result;
 					done();
@@ -120,13 +133,11 @@ describe('lib/hijack-express-render', () => {
 			});
 
 			it('calls `newRenderMethod` with `view` and `app.locals` and `app.locals._locals`', () => {
-				assert.calledOnce(newRenderMethod);
-				assert.strictEqual(newRenderMethod.firstCall.args[0], 'mock view');
-				assert.deepEqual(newRenderMethod.firstCall.args[1], {
+				td.verify(newRenderMethod('mock view', {
 					is: 'app',
 					isAppLocal: true,
 					isLocal: 'app'
-				});
+				}), {times: 1});
 			});
 
 			it('calls back with no error', () => {
@@ -142,9 +153,11 @@ describe('lib/hijack-express-render', () => {
 
 				beforeEach(done => {
 					renderError = new Error('mock render error');
-					newRenderMethod.reset();
-					newRenderMethod.rejects(renderError);
-					app.render('mock view', (error, result) => {
+					td.when(newRenderMethod(), {
+						ignoreExtraArgs: true,
+						defer: true
+					}).thenReject(renderError);
+					mockExpressApp.render('mock view', (error, result) => {
 						callbackError = error;
 						callbackResult = result;
 						done();
