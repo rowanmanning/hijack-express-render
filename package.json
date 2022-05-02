@@ -15,7 +15,7 @@
   "bugs": "https://github.com/rowanmanning/hijack-express-render/issues",
   "license": "MIT",
   "engines": {
-    "node": ">=10",
+    "node": ">=14",
     "npm": ">=7"
   },
   "scripts": {
