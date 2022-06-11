@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.0](https://github.com/rowanmanning/hijack-express-render/compare/v2.0.1...v2.1.0) (2022-06-11)
+
+
+### Features
+
+* ensure typescript types are always valid ([3b55dfb](https://github.com/rowanmanning/hijack-express-render/commit/3b55dfb858ef03c08d37d1ecb08eac4b95ff9add))
+
+
+### Miscellaneous
+
+* bump @commitlint/cli from 17.0.1 to 17.0.2 ([86381cb](https://github.com/rowanmanning/hijack-express-render/commit/86381cb8e53febbf677e5b079d6e10e935c26162))
+* bump @commitlint/config-conventional from 17.0.0 to 17.0.2 ([20e5b90](https://github.com/rowanmanning/hijack-express-render/commit/20e5b90650f5c1c2c82e34d98bb7f47a274ef902))
+* bump @rowanmanning/eslint-config from 3.5.0 to 4.0.2 ([76ab497](https://github.com/rowanmanning/hijack-express-render/commit/76ab497ae400378293a78b2e6332ba0bbb3a0360))
+* bump eslint from 8.16.0 to 8.17.0 ([91e8244](https://github.com/rowanmanning/hijack-express-render/commit/91e8244fd2e2eac8d051134ecafec244e8aafedb))
+* fix eslint issues ([b74cbf7](https://github.com/rowanmanning/hijack-express-render/commit/b74cbf714dc99a5fc0e961451ee69027d6a54185))
+
 ### [2.0.1](https://github.com/rowanmanning/hijack-express-render/compare/v2.0.0...v2.0.1) (2022-05-25)
 
 
