@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.0...v2.1.1) (2022-07-09)
+
+
+### Bug Fixes
+
+* hide the misc changelog section ([09a0297](https://github.com/rowanmanning/hijack-express-render/commit/09a0297fbed799316d176683852be0a6271e1f39))
+
 ## [2.1.0](https://github.com/rowanmanning/hijack-express-render/compare/v2.0.1...v2.1.0) (2022-06-11)
 
 
