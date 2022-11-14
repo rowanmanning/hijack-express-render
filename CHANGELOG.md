@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.1...v2.1.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* improve TypeScript compatibility ([b8a4ba3](https://github.com/rowanmanning/hijack-express-render/commit/b8a4ba354c402f1c99dd81169f5645c7fde792ab))
+
 ## [2.1.1](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.0...v2.1.1) (2022-07-09)
 
 
