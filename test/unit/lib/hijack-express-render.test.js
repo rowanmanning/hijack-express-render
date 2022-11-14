@@ -178,4 +178,10 @@ describe('lib/hijack-express-render', () => {
 
 	});
 
+	describe('.default', () => {
+		it('aliases the module exports', () => {
+			assert.strictEqual(hijackExpressRender, hijackExpressRender.default);
+		});
+	});
+
 });
