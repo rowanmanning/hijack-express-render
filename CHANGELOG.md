@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.2...v2.1.3) (2023-01-08)
+
+
+### Bug Fixes
+
+* bump json5 from 2.2.1 to 2.2.3 ([c656932](https://github.com/rowanmanning/hijack-express-render/commit/c656932324ef965606142d4d813fa840d5d99a19))
+
 ## [2.1.2](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.1...v2.1.2) (2022-11-14)
 
 
