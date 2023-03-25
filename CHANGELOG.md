@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.0](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.4...v3.0.0) (2023-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop official support for npm v7
+* drop support for Node.js 14
+
+### Miscellaneous
+
+* drop official support for npm v7 ([c5e603c](https://github.com/rowanmanning/hijack-express-render/commit/c5e603cde6a154ce6a46a7d332c8d1d9d952ed03))
+* drop support for Node.js 14 ([a82af47](https://github.com/rowanmanning/hijack-express-render/commit/a82af47f07e9e12fa139aebfc7a782906fe0395f))
+
 ## [2.1.4](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.3...v2.1.4) (2023-02-14)
 
 
