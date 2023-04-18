@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/rowanmanning/hijack-express-render/compare/v3.0.0...v3.0.1) (2023-04-18)
+
+
+### Bug Fixes
+
+* add support for Node.js 20 ([8af57bc](https://github.com/rowanmanning/hijack-express-render/commit/8af57bc51287d23b7d068e1b2b513b74d21a2dc4))
+
 ## [3.0.0](https://github.com/rowanmanning/hijack-express-render/compare/v2.1.4...v3.0.0) (2023-03-25)
 
 
