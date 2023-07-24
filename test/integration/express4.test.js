@@ -1,6 +1,6 @@
 'use strict';
 
-const {assert} = require('chai');
+const assert = require('node:assert');
 const createTestApp = require('./fixture/create-test-app');
 
 describe('Express 4', () => {
@@ -26,12 +26,12 @@ describe('Express 4', () => {
 		});
 
 		it('responds with the rendered view', () => {
-			assert.isObject(response.data);
+			assert.strictEqual(typeof response.data, 'object');
 			assert.strictEqual(response.data.view, 'home');
-			assert.isObject(response.data.options);
-			assert.isTrue(response.data.options.isHome);
-			assert.isTrue(response.data.options.isAppLocal);
-			assert.isTrue(response.data.options.isResponseLocal);
+			assert.strictEqual(typeof response.data.options, 'object');
+			assert.strictEqual(response.data.options.isHome, true);
+			assert.strictEqual(response.data.options.isAppLocal, true);
+			assert.strictEqual(response.data.options.isResponseLocal, true);
 		});
 
 	});
@@ -48,8 +48,8 @@ describe('Express 4', () => {
 		});
 
 		it('responds with an error view', () => {
-			assert.isObject(response.data);
-			assert.isObject(response.data.error);
+			assert.strictEqual(typeof response.data, 'object');
+			assert.strictEqual(typeof response.data.error, 'object');
 			assert.strictEqual(response.data.error.message, 'render error');
 		});
 

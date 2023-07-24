@@ -1,6 +1,6 @@
 'use strict';
 
-const {assert} = require('chai');
+const assert = require('node:assert');
 const td = require('testdouble');
 
 describe('lib/hijack-express-render', () => {
@@ -39,7 +39,7 @@ describe('lib/hijack-express-render', () => {
 		});
 
 		it('replaces `app.render` with a new method', () => {
-			assert.isFunction(mockExpressApp.render);
+			assert.strictEqual(typeof mockExpressApp.render, 'function');
 			assert.notStrictEqual(mockExpressApp.render, originalAppRender);
 		});
 
@@ -85,7 +85,7 @@ describe('lib/hijack-express-render', () => {
 			});
 
 			it('calls back with no error', () => {
-				assert.isNull(callbackError);
+				assert.strictEqual(callbackError, null);
 			});
 
 			it('calls back with the result of the render', () => {
@@ -113,7 +113,7 @@ describe('lib/hijack-express-render', () => {
 				});
 
 				it('calls back with no result', () => {
-					assert.isUndefined(callbackResult);
+					assert.strictEqual(callbackResult, undefined);
 				});
 
 			});
@@ -141,7 +141,7 @@ describe('lib/hijack-express-render', () => {
 			});
 
 			it('calls back with no error', () => {
-				assert.isNull(callbackError);
+				assert.strictEqual(callbackError, null);
 			});
 
 			it('calls back with the result of the render', () => {
@@ -169,7 +169,7 @@ describe('lib/hijack-express-render', () => {
 				});
 
 				it('calls back with no result', () => {
-					assert.isUndefined(callbackResult);
+					assert.strictEqual(callbackResult, undefined);
 				});
 
 			});
