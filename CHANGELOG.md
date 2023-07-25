@@ -1,5 +1,37 @@
 # Changelog
 
+## 3.0.2 (2023-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop official support for npm v7
+* drop support for Node.js 14
+* drop support for Node.js versions below 14
+* mocha no longer supports Node.js v12
+
+### Features
+
+* ensure typescript types are always valid ([3b55dfb](https://github.com/rowanmanning/hijack-express-render/commit/3b55dfb858ef03c08d37d1ecb08eac4b95ff9add))
+
+
+### Bug Fixes
+
+* add support for Node.js 20 ([8af57bc](https://github.com/rowanmanning/hijack-express-render/commit/8af57bc51287d23b7d068e1b2b513b74d21a2dc4))
+* bump json5 from 2.2.1 to 2.2.3 ([c656932](https://github.com/rowanmanning/hijack-express-render/commit/c656932324ef965606142d4d813fa840d5d99a19))
+* hide the misc changelog section ([09a0297](https://github.com/rowanmanning/hijack-express-render/commit/09a0297fbed799316d176683852be0a6271e1f39))
+* improve TypeScript compatibility ([b8a4ba3](https://github.com/rowanmanning/hijack-express-render/commit/b8a4ba354c402f1c99dd81169f5645c7fde792ab))
+* sort out broken releases ([efa7758](https://github.com/rowanmanning/hijack-express-render/commit/efa7758635ef9beee853183297bbc98d4d0a219d))
+* support npm v9 ([7e5783c](https://github.com/rowanmanning/hijack-express-render/commit/7e5783cb12f705f28b2b77fd95d2a8fa59110e97))
+
+
+### Miscellaneous
+
+* bump mocha from 9.2.2 to 10.0.0 ([187e5e9](https://github.com/rowanmanning/hijack-express-render/commit/187e5e9b10a31bccad9a4670bf26579eeaf6060c))
+* drop official support for npm v7 ([c5e603c](https://github.com/rowanmanning/hijack-express-render/commit/c5e603cde6a154ce6a46a7d332c8d1d9d952ed03))
+* drop support for Node.js 14 ([a82af47](https://github.com/rowanmanning/hijack-express-render/commit/a82af47f07e9e12fa139aebfc7a782906fe0395f))
+* drop support for Node.js versions below 14 ([31b2272](https://github.com/rowanmanning/hijack-express-render/commit/31b2272075c3d5fb4feb66db6f6479181682efe6))
+
 ## [3.0.1](https://github.com/rowanmanning/hijack-express-render/compare/v3.0.0...v3.0.1) (2023-04-18)
 
 
