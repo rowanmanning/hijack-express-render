@@ -1,6 +1,6 @@
 {
   "name": "@rowanmanning/hijack-express-render",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Override an Express application's render methods",
   "keywords": [
     "express",
