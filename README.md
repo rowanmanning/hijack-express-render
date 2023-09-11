@@ -20,7 +20,7 @@ This allows you to implement your own template resolution and caching, but retai
 
 This library requires the following to run:
 
-  * [Node.js](https://nodejs.org/) 16+
+  * [Node.js](https://nodejs.org/) 18+
 
 
 ## Usage
