@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/rowanmanning/hijack-express-render/compare/v3.0.2...v4.0.0) (2023-09-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support for Node.js 16
+
+### Miscellaneous
+
+* drop support for Node.js 16 ([23bc4b7](https://github.com/rowanmanning/hijack-express-render/commit/23bc4b761093ab0c8eaae3820c360766b0af7e5d))
+
 ## 3.0.2 (2023-07-25)
 
 
